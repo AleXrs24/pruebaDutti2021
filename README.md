@@ -45,4 +45,5 @@ Navigate to `http://localhost:4200/`.
 8. Install Angular Material: `ng add @angular/material`
 9. Add password field to register form
 10. Add local storage service: `ng g service services/storage/local-storage`
+11. Add interface for user local storage: `ng g interface interfaces/user-local-storage`
 
