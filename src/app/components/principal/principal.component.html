@@ -5,9 +5,10 @@
             <a class="dropdown-item" [routerLink]="'ships'">Ships</a>
             <a class="dropdown-item" [routerLink]="'pageOne'">Page One</a>
             <a class="dropdown-item" [routerLink]="'pageTwo'">Page Two</a>
-            <a class="dropdown-item" [routerLink]="''">Login</a>
+            <a class="dropdown-item" (click)="logOut()">Log out</a>
         </div>
     </div>
+    <h6>Hello {{ currentUser?.username }}!</h6>
 </nav>
 
 <router-outlet></router-outlet>
