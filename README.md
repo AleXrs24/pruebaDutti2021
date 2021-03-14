@@ -43,14 +43,14 @@ Navigate to `http://localhost:4200/`.
 6. Add interface for user access credentials: `ng g interface interfaces/credentials`
 7. Add authentication service: `ng g service services/auth/auth`
 8. Install Angular Material: `ng add @angular/material`
-9. Add password field to register form
+9. Add password field to register form.
 10. Add local storage service: `ng g service services/storage/local-storage`
 11. Add interface for user local storage: `ng g interface interfaces/user-local-storage`
-12. Set current user on sign in
-13. Set current user to null and redirect to login page on logout 
-14. Add authentication guard on ships/login component
-15. Problem on linux mint: system limit for number of file watchers reache
+12. Set current user on sign in.
+13. Set current user to null and redirect to login page on logout.
+14. Add authentication guard on ships/login component.
+15. Problem on linux mint: system limit for number of file watchers reache.
     1. Solution: `echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
 16. Add interfaces for ship: `ng g interface interfaces/ship` | `ng g interface interfaces/ships`
-
+17. Add pagination on ships module.
 

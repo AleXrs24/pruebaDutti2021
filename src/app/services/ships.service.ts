@@ -19,8 +19,8 @@ export class ShipsService {
   
   constructor( private http: HttpClient ) {}
 
-  getShips(): Observable<any>{
-    return this.http.get(this.url).pipe( 
+  getShips(page?: number): Observable<any> {
+    return this.http.get(page ? this.url + '?page=' + page : this.url).pipe( 
       map( data => { return data })
       );
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShipsService } from 'src/app/services/ships.service';
+import { Ships } from 'src/app/interfaces/ships';
 
 @Component({
   selector: 'app-ships',
@@ -8,14 +9,25 @@ import { ShipsService } from 'src/app/services/ships.service';
 })
 export class ShipsComponent implements OnInit {
 
-  public dataList: any = [];
+  public dataList: Ships[] = [];
+  dataLoading: boolean = false;
 
   constructor( private shipsService: ShipsService) {}
 
   ngOnInit(): void {
-    this.shipsService.getShips().subscribe((ships) => {
-      this.dataList = ships;
-      console.log('SHIPS -->', this.dataList.results)
-    })
+    this.getShips();
   }
+
+  pageChange(page: number): void {
+    this.getShips(page);
+  }
+
+  getShips(page?: number): void {
+    this.dataLoading = true;
+    this.shipsService.getShips(page).subscribe((ships: Ships[]) => {
+      this.dataList = ships;
+      this.dataLoading = false;
+    });
+  }
+
 }

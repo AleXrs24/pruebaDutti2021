@@ -1,16 +1,28 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { 
+  Component,
+  OnInit,
+  Input,
+  SimpleChanges,
+  OnChanges,
+  Output,
+  EventEmitter
+} from '@angular/core';
 declare var $: any;
-
 
 @Component({
   selector: 'ships-details',
   templateUrl: './ships-details.component.html',
   styleUrls: ['./ships-details.component.scss']
 })
-export class ShipsDetailsComponent implements OnInit {
+export class ShipsDetailsComponent implements OnInit, OnChanges {
 
   @Input() dataList: any;
-  config: any;
+  @Output() pageChange: EventEmitter<any> = new EventEmitter<any>();
+  config: any = {
+    itemsPerPage: 10,
+    currentPage: 1,
+    totalItems: 0
+  };
   shipId: string = '';
   url: string = '';
   // Modal
@@ -22,11 +34,18 @@ export class ShipsDetailsComponent implements OnInit {
   }
   
   ngOnInit(): void {
-      this.config = {
-        itemsPerPage: 5,
-        currentPage: 1,
-        totalItems: this.dataList.length
-      };
+    this.config = {
+      itemsPerPage: 10,
+      currentPage: 1,
+      totalItems: this.dataList.count
+    };
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    // only run when property "dataList" changed
+    if (changes['dataList']) {
+      this.config.totalItems = this.dataList.count;
+    }
   }
 
   getStarshipId(url) {
@@ -36,7 +55,9 @@ export class ShipsDetailsComponent implements OnInit {
   }
 
   pageChanged(event){
-    this.config.currentPage = event;
+    let toPage = event;
+    this.pageChange.emit(toPage);
+    this.config.currentPage = event
   }
 
   openDetails(details) {
