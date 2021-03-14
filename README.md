@@ -49,4 +49,8 @@ Navigate to `http://localhost:4200/`.
 12. Set current user on sign in
 13. Set current user to null and redirect to login page on logout 
 14. Add authentication guard on ships/login component
+15. Problem on linux mint: system limit for number of file watchers reache
+    1. Solution: `echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
+16. Add interfaces for ship: `ng g interface interfaces/ship` | `ng g interface interfaces/ships`
+
 
