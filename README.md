@@ -39,6 +39,6 @@ Navigate to `http://localhost:4200/`.
 2. Generate config variables.
 3. Enable email/password authentication on Firebase Authentication.
 4. Set firebase config on enviroment files.
-4. Install AngularFire to authenticate users: `ng add @angular/fire`
+5. Install AngularFire to authenticate users: `ng add @angular/fire`
 
 
