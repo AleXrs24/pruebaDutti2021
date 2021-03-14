@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import firebase from 'firebase';
 // Services
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { LocalStorageService } from 'src/app/services/storage/local-storage.service';
 
 // JSON
 // import usersList from 'src/assets/json/users.json';
@@ -24,7 +25,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private auth: AuthService
+    private auth: AuthService,
+    private localStorage: LocalStorageService
   ) { }
 
   ngOnInit(): void {
@@ -44,6 +46,15 @@ export class RegisterComponent implements OnInit {
     this.dataLoading = true;
     this.auth.signInWithCredentials(this.registerForm.value).then((userCredentials: firebase.auth.UserCredential) => {
       // console.log('User credentials: ', userCredentials);
+      this.localStorage.set(
+        userCredentials.user.uid,
+        {
+          'email': this.registerForm.value.email,
+          'first_name': this.registerForm.value.first_name,
+          'last_name': this.registerForm.value.last_name,
+          'username': this.registerForm.value.username
+        }
+      );
       this.dataLoading = false;
       this.router.navigate(['/principal/ships']);
     }).catch(error => {
