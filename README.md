@@ -54,3 +54,9 @@ Navigate to `http://localhost:4200/`.
 16. Add interfaces for ship: `ng g interface interfaces/ship` | `ng g interface interfaces/ships`
 17. Add pagination on ships module.
 18. Add image to each ship.
+19. Install ngrx store library: `ng add @ngrx/store@latest`
+20. Install ngrx effects library: `ng add @ngrx/effects@latest`
+21. Install ngrx store-devtools library: `ng add @ngrx/store-devtools@latest`
+22. Install ngrx schematics library: `ng add @ngrx/schematics@latest`
+23. Run the following at the root of the project to change the CLI to use theNgRx Schematics: `ng config cli.defaultCollection @ngrx/schematics`
+24. Generate a feature set containing an actions, effects, reducer, and selectors file for ships: `ng g feature components/ships/store/ship --module=app.module.ts --no-flat --creators`
