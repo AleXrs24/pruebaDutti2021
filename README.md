@@ -43,4 +43,5 @@ Navigate to `http://localhost:4200/`.
 6. Add interface for user access credentials: `ng g interface interfaces/credentials`
 7. Add authentication service: `ng g service services/auth/auth`
 8. Install Angular Material: `ng add @angular/material`
+9. Add interface to save user data: `ng g interface interfaces/user-data`
 

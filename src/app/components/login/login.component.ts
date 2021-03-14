@@ -6,7 +6,7 @@ import firebase from 'firebase';
 // Services
 import { AuthService } from 'src/app/services/auth/auth.service';
 // JSON
-import usersList from 'src/assets/json/users.json';
+// import usersList from 'src/assets/json/users.json';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   dataLoading: boolean = false;
-  users: any = usersList;
+  hidePassword: boolean = true;
+  // users: any = usersList;
   // unregistered: boolean = false;
   errorMessage: string = null;
   invalid: boolean = false;
