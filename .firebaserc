@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pruebadutti2021": {
+      "hosting": {
+        "massimo-dutti": [
+          "pruebadutti2021"
+        ]
+      }
+    }
+  }
+}
