@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ShipsService } from 'src/app/services/ships.service';
+
+// Services
+// import { ShipsService } from 'src/app/services/ships.service';
+
+// Interfaces
 import { Ships } from 'src/app/interfaces/ships';
+// Ngrx
+import { Store } from '@ngrx/store';
+import { loadShips } from './store/ship/ship.actions';
+import { getStateData } from './store/ship/ship.selectors';
 
 @Component({
   selector: 'app-ships',
@@ -10,9 +18,11 @@ import { Ships } from 'src/app/interfaces/ships';
 export class ShipsComponent implements OnInit {
 
   public dataList: Ships[] = [];
-  dataLoading: boolean = false;
 
-  constructor( private shipsService: ShipsService) {}
+  constructor(
+    // private shipsService: ShipsService,
+    private shipStore: Store<{ shipState: any }>
+  ) {}
 
   ngOnInit(): void {
     this.getShips();
@@ -23,10 +33,14 @@ export class ShipsComponent implements OnInit {
   }
 
   getShips(page?: number): void {
-    this.dataLoading = true;
-    this.shipsService.getShips(page).subscribe((ships: Ships[]) => {
-      this.dataList = ships;
-      this.dataLoading = false;
+    // this.shipsService.getShips(page).subscribe((ships: Ships[]) => {
+    //   this.dataList = ships;
+    //   this.dataLoading = false;
+    // });
+    this.shipStore.dispatch(loadShips({page: page}));
+    this.shipStore.select(getStateData).subscribe((data: Ships[]) => {
+      if (data) 
+        this.dataList = data;
     });
   }
 
