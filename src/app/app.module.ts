@@ -19,6 +19,12 @@ import { AngularFireModule } from '@angular/fire';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 // Angular Material
 import { MatIconModule } from '@angular/material/icon';
+// Ngrx
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { shipReducer } from './components/ships/store/ship/ship.reducer';
+import { ShipEffects } from './components/ships/store/ship/ship.effects';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,10 @@ import { MatIconModule } from '@angular/material/icon';
     PrincipalModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     NoopAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    StoreModule.forRoot({ shipState: shipReducer }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    EffectsModule.forRoot([ShipEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
