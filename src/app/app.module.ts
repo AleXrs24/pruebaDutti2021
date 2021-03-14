@@ -16,6 +16,12 @@ import { environment } from 'src/environments/environment';
 // Angular Fire
 import { AngularFireModule } from '@angular/fire';
 
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+// Angular Material
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +35,11 @@ import { AngularFireModule } from '@angular/fire';
     FormsModule,
     ReactiveFormsModule,
     PrincipalModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    NoopAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
