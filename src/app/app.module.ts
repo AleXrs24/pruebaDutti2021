@@ -18,8 +18,6 @@ import { AngularFireModule } from '@angular/fire';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 // Angular Material
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
@@ -37,9 +35,7 @@ import { MatIconModule } from '@angular/material/icon';
     PrincipalModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     NoopAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
