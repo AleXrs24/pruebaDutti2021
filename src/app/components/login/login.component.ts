@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
     this.dataLoading = true;
     this.auth.logInWithCredentials(this.loginForm.value).then((userCredentials: firebase.auth.UserCredential) => {
       // console.log('User credentials: ', userCredentials);
+      this.loginForm.reset();
       this.dataLoading = false;
       this.router.navigate(['/principal/ships']);
     }).catch(error => {

@@ -55,6 +55,7 @@ export class RegisterComponent implements OnInit {
           'username': this.registerForm.value.username
         }
       );
+      this.registerForm.reset();
       this.dataLoading = false;
       this.router.navigate(['/principal/ships']);
     }).catch(error => {
