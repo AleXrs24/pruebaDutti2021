@@ -53,4 +53,4 @@ Navigate to `http://localhost:4200/`.
     1. Solution: `echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
 16. Add interfaces for ship: `ng g interface interfaces/ship` | `ng g interface interfaces/ships`
 17. Add pagination on ships module.
-
+18. Add image to each ship.

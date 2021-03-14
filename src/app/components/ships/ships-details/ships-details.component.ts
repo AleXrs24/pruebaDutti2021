@@ -7,6 +7,8 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
+// Services
+import { ShipsService } from 'src/app/services/ships.service';
 declare var $: any;
 
 @Component({
@@ -30,7 +32,7 @@ export class ShipsDetailsComponent implements OnInit, OnChanges {
   modelDetails: string = '';
   starship_class: string = '';
 
-  constructor() { 
+  constructor(private shipsService: ShipsService) { 
   }
   
   ngOnInit(): void {
@@ -49,9 +51,10 @@ export class ShipsDetailsComponent implements OnInit, OnChanges {
   }
 
   getStarshipId(url) {
-    this.shipId = url.slice(0, -1)
-    const urlImage = `${this.shipId}.jpg`
-    return urlImage !== "";
+    let shipUrl = url.slice(0, -1);
+    this.shipId = shipUrl.substring(shipUrl.lastIndexOf('/') + 1);
+    const urlImage = this.shipsService.getShipImagesUrl() + `${this.shipId}.jpg`;
+    return urlImage;
   }
 
   pageChanged(event){
