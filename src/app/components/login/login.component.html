@@ -4,24 +4,26 @@
     <form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="form">
         <div class="form-group mt-5" [ngClass]="{ 'has-error': loginForm.invalid }">
             <input
-                type="text"
+                type="email"
                 class="form-control"
-                placeholder="Username"
-                formControlName="username"/>
-                <hr class="hr-line">
-            <div class="input-group-append form__required" *ngIf="loginForm.get('username').invalid">
+                placeholder="Email"
+                formControlName="email"
+            />
+            <hr class="hr-line">
+            <div class="input-group-append form__required" *ngIf="loginForm.get('email').invalid">
                 <span class="colorInvalid">
-                    <i>Username is required</i>
+                    <i>Email is required</i>
                 </span>
             </div>
         </div>
         <div class="form-group mt-5" [ngClass]="{ 'has-error': loginForm.invalid }">
             <!-- <label for="password">Password</label> -->
             <input
-            type="password"
-            class="form-control"
-            placeholder="Password"
-            formControlName="password"/>
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                formControlName="password"
+            />
             <hr class="hr-line">
             <div class="input-group-append form__required" *ngIf="loginForm.get('password').invalid">
                 <span class="colorInvalid">
@@ -38,9 +40,9 @@
             <img *ngIf="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
             <!-- <button type="button" class="btn buttons__register" routerLink="/register">Iniciar sesión</button> -->
         </div>
-        <div class="input-group-append" *ngIf="unregistered">
+        <div class="input-group-append" *ngIf="errorMessage">
             <span class="colorInvalid">
-                <i>Unregistered user</i>
+                <i>{{ errorMessage }}</i>
             </span>
         </div>
     </form>
