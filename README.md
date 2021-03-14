@@ -48,4 +48,5 @@ Navigate to `http://localhost:4200/`.
 11. Add interface for user local storage: `ng g interface interfaces/user-local-storage`
 12. Set current user on sign in
 13. Set current user to null and redirect to login page on logout 
+14. Add authentication guard on ships/login component
 
