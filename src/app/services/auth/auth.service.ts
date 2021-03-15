@@ -46,5 +46,13 @@ export class AuthService {
   signOut(): Promise<void> {
     return this.afAuth.signOut();
   }
+
+  signOutTest(): Promise<boolean> {
+    return this.afAuth.signOut().then(() => {
+      return true;
+    }).catch(err => {
+      return false;
+    });
+  }
   
 }

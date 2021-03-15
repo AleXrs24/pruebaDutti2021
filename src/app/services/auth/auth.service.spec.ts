@@ -39,6 +39,14 @@ describe('AuthService', () => {
     const result = await service.logInWithCredentialsTest(credentialsMock);
     expect(result).toEqual(true);
   });
+  
+  it('should not be authenticated after log out', async () => {
+    const login = await service.logInWithCredentialsTest(credentialsMock);
+    expect(login).toEqual(true);
+    
+    const logout = await service.signOutTest();
+    expect(logout).toEqual(true);
+  });
 
   it('should be authenticated after register', async () => {
     const result = await service.signInWithCredentialsTest(newUserCredentialsMock);
