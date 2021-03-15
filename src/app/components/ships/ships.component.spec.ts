@@ -8,7 +8,7 @@ import { ShipsComponent } from './ships.component';
 
 import { BehaviorSubject, of } from 'rxjs';
 
-describe('ShipsComponent', () => {
+xdescribe('ShipsComponent', () => {
   let component: ShipsComponent;
   let fixture: ComponentFixture<ShipsComponent>;
   const serviceMock ={

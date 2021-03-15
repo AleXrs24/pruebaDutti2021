@@ -5,7 +5,7 @@ import { ShipsDetailsComponent } from './ships-details.component';
 import { PaginationControlsComponent } from 'ngx-pagination';
 import { Component, Pipe, PipeTransform } from '@angular/core';
 
-describe('ShipsDetailsComponent', () => {
+xdescribe('ShipsDetailsComponent', () => {
   let component: ShipsDetailsComponent;
   let fixture: ComponentFixture<ShipsDetailsComponent>;
 
