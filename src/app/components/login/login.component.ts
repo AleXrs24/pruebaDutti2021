@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     })
   }
   loginUser() {
-    if (this.loginForm.invalid) { return }
+    if (this.loginForm.invalid) { return 'invalid_form' }
     // TODO : Falta integrar el servicio para autentificar al usuario
 
     this.dataLoading = true;
