@@ -21,8 +21,26 @@ export class AuthService {
     return this.afAuth.signInWithEmailAndPassword(credentials.email, credentials.password);
   }
 
+  async logInWithCredentialsTest(credentials: Credentials): Promise<boolean> {
+    try {
+      const result = await this.logInWithCredentials(credentials);
+      return !!result;
+    } catch (e) {
+      return false;
+    }
+  }
+
   signInWithCredentials(data: Credentials): Promise<firebase.auth.UserCredential> {
     return this.afAuth.createUserWithEmailAndPassword(data.email, data.password);
+  }
+
+  async signInWithCredentialsTest(data: Credentials): Promise<boolean> {
+    try {
+      const result = await this.signInWithCredentials(data);
+      return !!result;
+    } catch (e) {
+      return false;
+    }
   }
 
   signOut(): Promise<void> {
