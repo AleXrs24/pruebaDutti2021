@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
       password: [ '', [Validators.required, Validators.minLength(6)]]
     })
   }
+  
   loginUser() {
     if (this.loginForm.invalid) { return 'invalid_form' }
     // TODO : Falta integrar el servicio para autentificar al usuario

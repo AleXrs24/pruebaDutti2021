@@ -82,4 +82,5 @@ describe('LoginComponent', () => {
     expect(errors.required).toBeFalsy();
     expect(errors.email).toBeFalsy();
   });
+  
 });
