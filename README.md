@@ -60,3 +60,8 @@ Navigate to `http://localhost:4200/`.
 22. Install ngrx schematics library: `ng add @ngrx/schematics@latest`
 23. Run the following at the root of the project to change the CLI to use theNgRx Schematics: `ng config cli.defaultCollection @ngrx/schematics`
 24. Generate a feature set containing an actions, effects, reducer, and selectors file for ships: `ng g feature components/ships/store/ship --module=app.module.ts --no-flat --creators`
+
+
+# Tests
+
+`npm run test` to run tests
