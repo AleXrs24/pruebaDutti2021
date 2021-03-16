@@ -76,7 +76,7 @@
                     placeholder="Password"
                     formControlName="password" />
                     <div class="input-group-addon">
-                        <mat-icon class="form-control btn" matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <i nz-icon class="form-control btn" [nzType]="hidePassword ? 'eye-invisible' : 'eye'" (click)="hidePassword = !hidePassword"></i>
                     </div>
             </div>
             <hr class="hr-line">

@@ -35,6 +35,16 @@ Navigate to `http://localhost:4200/`.
 
 # Notas del desarrollador:
 
+
+
+
+# Tests
+
+`npm run test` to run tests
+
+
+# Pasos que he seguido durante el desarrollo de la prueba:
+
 1. Create project on Firebase.
 2. Generate config variables.
 3. Enable email/password authentication on Firebase Authentication.
@@ -42,7 +52,7 @@ Navigate to `http://localhost:4200/`.
 5. Install AngularFire to authenticate users: `ng add @angular/fire`
 6. Add interface for user access credentials: `ng g interface interfaces/credentials`
 7. Add authentication service: `ng g service services/auth/auth`
-8. Install Angular Material: `ng add @angular/material`
+8. Install Ant Design: `ng add ng-zorro-antd`
 9. Add password field to register form.
 10. Add local storage service: `ng g service services/storage/local-storage`
 11. Add interface for user local storage: `ng g interface interfaces/user-local-storage`
@@ -60,8 +70,3 @@ Navigate to `http://localhost:4200/`.
 22. Install ngrx schematics library: `ng add @ngrx/schematics@latest`
 23. Run the following at the root of the project to change the CLI to use theNgRx Schematics: `ng config cli.defaultCollection @ngrx/schematics`
 24. Generate a feature set containing an actions, effects, reducer, and selectors file for ships: `ng g feature components/ships/store/ship --module=app.module.ts --no-flat --creators`
-
-
-# Tests
-
-`npm run test` to run tests
