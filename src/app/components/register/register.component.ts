@@ -46,6 +46,8 @@ export class RegisterComponent implements OnInit {
     this.dataLoading = true;
     this.auth.signInWithCredentials(this.registerForm.value).then((userCredentials: firebase.auth.UserCredential) => {
       // console.log('User credentials: ', userCredentials);
+
+      // This information should be saved in session storage but we don't currently store it in an external database
       this.localStorage.set(
         userCredentials.user.uid,
         {
