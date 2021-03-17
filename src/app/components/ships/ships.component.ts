@@ -18,6 +18,7 @@ import { getStateData } from './store/ship/ship.selectors';
 export class ShipsComponent implements OnInit {
 
   public dataList: Ships[] = [];
+  loading: boolean = false;
 
   constructor(
     // private shipsService: ShipsService,
@@ -25,17 +26,19 @@ export class ShipsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // this.loading = true;
     this.getShips();
   }
 
   pageChange(page: number): void {
+    // this.loading = true;
     this.getShips(page);
   }
 
   getShips(page?: number): void {
     // this.shipsService.getShips(page).subscribe((ships: Ships[]) => {
     //   this.dataList = ships;
-    //   this.dataLoading = false;
+    //   this.loading = false;
     // });
     this.shipStore.dispatch(loadShips({page: page}));
     this.shipStore.select(getStateData).subscribe((data: Ships[]) => {

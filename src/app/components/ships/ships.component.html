@@ -1,3 +1,4 @@
 <div class="container">
+    <nz-demo-spin-inside *ngIf="loading"></nz-demo-spin-inside>
     <ships-details [dataList]="dataList" (pageChange)="pageChange($event)"></ships-details>
 </div>

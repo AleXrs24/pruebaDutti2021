@@ -6,6 +6,7 @@ import es from '@angular/common/locales/es';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { PrincipalModule } from './components/principal/principal.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Components
 import { AppComponent } from './app.component';
@@ -48,6 +49,7 @@ registerLocaleData(es);
     ReactiveFormsModule,
     PrincipalModule,
     NzIconModule,
+    BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     StoreModule.forRoot({ shipState: shipReducer }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
