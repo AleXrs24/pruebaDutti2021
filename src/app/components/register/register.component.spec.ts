@@ -1,16 +1,33 @@
-
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { AngularFireModule } from '@angular/fire';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { environment } from 'src/environments/environment';
+
+import { IconDefinition } from '@ant-design/icons-angular';
+import * as AllIcons from '@ant-design/icons-angular/icons';
+import { NzIconModule, NZ_ICONS } from 'ng-zorro-antd/icon';
+
 import { RegisterComponent } from './register.component';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
-  let form: FormBuilder;
+  let router: Router;
+
+  const formBuilder: FormBuilder = new FormBuilder();
+
+  const antDesignIcons = AllIcons as {
+    [key: string]: IconDefinition;
+  };
+
+  const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => {
+    const i = antDesignIcons[key];
+    return i;
+  });
+
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ RegisterComponent ],
@@ -18,10 +35,16 @@ describe('RegisterComponent', () => {
         FormsModule, 
         RouterTestingModule.withRoutes([]),
         ReactiveFormsModule,
-        MatIconModule,
+        HttpClientModule,
+        NzIconModule,
         AngularFireModule.initializeApp(environment.firebaseConfig)
       ],
-        
+      providers: [
+        {
+          provide: NZ_ICONS,
+          useValue: icons
+        }
+      ]
     })
     .compileComponents();
 
