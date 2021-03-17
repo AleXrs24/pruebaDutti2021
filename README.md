@@ -35,7 +35,23 @@ Navigate to `http://localhost:4200/`.
 
 # Notas del desarrollador:
 
+Para mejorar el rendimiento del servidor se podría implementar la técnica denominada "Sprite CSS":
 
+1. El propósito de esta técnica es ganar velocidad durante la carga de imágenes/iconos de la aplicación.
+2. Consiste en montar una sola imagen con todas las imágenes o iconos que se van a descargar desde el cliente.
+3. Posteriormente, a través de CSS podemos identificar y extraer las imágenes.
+
+Además, las imágenes que obtenemos de la api se podrían codificar en base 64 en el servidor.
+
+Otra técnica también conocida, es la compilación de los ficheros javascript y css en un único fichero minimizado.
+
+Server Side Rendering vs Client Side Rendering:
+1. Server side rendering (SSR) significa que los scripts pueden ser ejecutados en un servidor para que cuando un usuario abra la página estén ya cargados, aumentando el rendimiento. 
+2. La otra opción, la más habitual, es 'client side rendering', simplemente significa que el propio usuario carga los scripts en su ordenador.
+3. La desventaja principal de 'server side rendering' es que se realizan más llamadas a servidor, y por tanto, navegar por la web es un poco más lento, pero la carga inicial es mucho más rápida que 'client side rendering'.
+
+No olvidarse de compilar la app con: `ng build --prod`
+Al finalizar la compilación, se genera una carpeta llamada 'dist' que contiene todos los archivos que debemos subir a nuestro hosting.
 
 
 # Tests
@@ -70,3 +86,4 @@ Navigate to `http://localhost:4200/`.
 22. Install ngrx schematics library: `ng add @ngrx/schematics@latest`
 23. Run the following at the root of the project to change the CLI to use theNgRx Schematics: `ng config cli.defaultCollection @ngrx/schematics`
 24. Generate a feature set containing an actions, effects, reducer, and selectors file for ships: `ng g feature components/ships/store/ship --module=app.module.ts --no-flat --creators`
+25. Generate spin container component: `ng g component components/ng-zorro/nzSpinInside`
